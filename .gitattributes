@@ -1,0 +1,15 @@
+# 统一行尾为 LF：与 .editorconfig（end_of_line = lf）及 Prettier（endOfLine: lf）保持一致，
+# 避免 Windows 的 core.autocrlf 在检出时转成 CRLF 导致 format:check 失败。
+* text=auto eol=lf
+
+# 以下视为二进制，不做任何行尾转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.wasm binary
+*.sqlite binary
+*.woff binary
+*.woff2 binary
