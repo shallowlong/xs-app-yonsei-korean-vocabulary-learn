@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build/
+logs/
+coverage/
+dist/
+
+# npm 生成物：格式与 `npm install` 的写入格式互相覆盖，故不纳入格式化
+package-lock.json

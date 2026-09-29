@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Vite dev cache
+.vite/
+node_modules/.vite/
+
+# 运行时生成的数据（由 postinstall 的 wasm 复制与 `npm run db` 重新生成）
+public/data/vocabulary.sqlite
+public/data/sql-wasm.wasm
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 本地浏览器验证产物（截图与快照；仅项目根目录，见 AGENTS.md §9）
+.playwright-cli/
+/*.png
+/*.yaml
