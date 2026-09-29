@@ -3,7 +3,7 @@
 > **延世韩国语词汇发音练习**
 > 《延世韩国语》1–6 册 · 韩 / 中 / English 三语 · 浏览器内置语音包 · 进度存本地
 
-![license](https://img.shields.io/badge/code-MIT-blue) ![dataset](https://img.shields.io/badge/dataset-CC_BY--SA_3.0-orange) ![vue](https://img.shields.io/badge/Vue-3-42b883) ![element](https://img.shields.io/badge/Element_Plus-2-409eff) ![vite](https://img.shields.io/badge/Vite-5-646cff)
+![license](https://img.shields.io/badge/code-MIT-blue) ![dataset](https://img.shields.io/badge/dataset-CC_BY--SA_3.0-orange) ![vue](https://img.shields.io/badge/Vue-3-42b883) ![element](https://img.shields.io/badge/Element_Plus-2-409eff) ![vite](https://img.shields.io/badge/Vite-8-646cff)
 
 ## 这是什么
 
@@ -72,7 +72,7 @@ Vercel 自动重新部署。即**数据更新走提交，而非走构建**。
 
 | 领域 | 选型                                                      |
 | ---- | --------------------------------------------------------- |
-| 构建 | Vite 5（`base: "./"` 相对路径产物）                       |
+| 构建 | Vite 8（`base: "./"` 相对路径产物）                       |
 | 框架 | Vue 3（`<script setup>`，纯 JavaScript）                  |
 | UI   | Element Plus 2（全量引入 + 中文语言包）                   |
 | 状态 | Pinia 3（`progress` / `settings`，持久化到 localStorage） |

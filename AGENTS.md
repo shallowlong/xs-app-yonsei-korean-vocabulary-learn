@@ -51,7 +51,7 @@
 
 > 用表格列出「想做什么 → 去哪个目录改」，让 AI 不瞎找文件。本表由 `init.js` 探测后按本项目真实结构人工补全。
 
-**技术栈**：Vue 3（`<script setup>`）+ Vite 5 + Element Plus 2（全量引入，中文语言包）+ Pinia 3 + Vue Router 4（hash 模式）+ JavaScript（未启用 TypeScript）+ sql.js（WebAssembly SQLite）。无后端、无 ESLint/Prettier 配置（风格靠约定，见 §4）。
+**技术栈**：Vue 3（`<script setup>`）+ Vite 8 + Element Plus 2（全量引入，中文语言包）+ Pinia 3 + Vue Router 4（hash 模式）+ JavaScript（未启用 TypeScript）+ sql.js（WebAssembly SQLite）。无后端；风格由 Prettier 强制（见 §4）。
 
 | 想做什么                   | 去哪里改                                                                         |
 | -------------------------- | -------------------------------------------------------------------------------- |
