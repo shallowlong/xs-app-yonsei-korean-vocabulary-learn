@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
+		"prebuild": "node scripts/copy-wasm.mjs",
 		"build": "vite build",
 		"preview": "vite preview",
 		"db": "python scripts/build-db.py",

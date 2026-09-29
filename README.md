@@ -36,6 +36,38 @@ npm run dev          # → http://localhost:8100/
 npm run build        # → dist/
 ```
 
+## 部署
+
+纯静态站点，可直接部署到 Vercel（配置已写在 `vercel.json` 中）：
+
+| 设置项           | 值                                                 |
+| ---------------- | -------------------------------------------------- |
+| Framework Preset | Vite                                               |
+| Install Command  | `npm install`（由 `postinstall` 生成 wasm 运行时） |
+| Build Command    | `npm run build`（`prebuild` 会再次确保 wasm 就位） |
+| Output Directory | `dist`                                             |
+
+### 为什么词库必须入库
+
+`public/data/vocabulary.sqlite` **刻意提交到仓库**（不在 `.gitignore` 中）：
+
+- 它由 `npm run db` 从**仓库外**的上游数据集（`../open-yonsei-korean-vocabulary/data/json`）
+  生成；生产构建环境（如 Vercel）没有该目录，也无法在构建期取数
+- 因此词库作为静态只读资源随站点分发（约 1.2 MB），前端用 sql.js 同源加载
+- 本地首次克隆后，仍建议执行 `npm install` + `npm run db` 以生成与上游同步的词库副本
+
+### 数据更新流程
+
+上游词表更新后：本地 `npm run db` → `git add public/data/vocabulary.sqlite` → 提交推送 →
+Vercel 自动重新部署。即**数据更新走提交，而非走构建**。
+
+### 部署后自检
+
+- 访问 `https://<你的域名>/data/vocabulary.sqlite` 应返回 **200**，大小约 **1.2 MB**
+- 首页应显示「4445 条词条 · 6 册 · 60 课」
+
+> 站点使用 hash 路由（`/#/...`），服务端无需 SPA 重写规则，因此 `vercel.json` 不含 `rewrites`。
+
 ## 技术栈
 
 | 领域 | 选型                                                      |

@@ -8,9 +8,12 @@ dist/
 .vite/
 node_modules/.vite/
 
-# 运行时生成的数据（由 postinstall 的 wasm 复制与 `npm run db` 重新生成）
-public/data/vocabulary.sqlite
+# sql.js 的 WebAssembly 运行时（依赖产物，由 postinstall / prebuild 从 node_modules 复制）
 public/data/sql-wasm.wasm
+
+# 注意：public/data/vocabulary.sqlite（词库）刻意**不入**忽略清单——它必须入库。
+# 该文件由 `npm run db` 从仓库外的上游数据集生成，生产构建环境（如 Vercel）无法生成，
+# 因此随静态站点一起分发。详见 README 的「部署」章节与 AGENTS.md §9。
 
 # Logs
 *.log

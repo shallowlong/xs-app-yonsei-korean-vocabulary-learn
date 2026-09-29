@@ -67,6 +67,7 @@
 | SQLite 生成脚本            | `scripts/build-db.py`（数据来源见 `docs/knowledge/data-model.md`）               |
 | 应用外壳（顶栏 / 页脚）    | `src/components/AppShell.vue`、`src/components/AppFooter.vue`                    |
 | 注册 UI 库 / 全局插件      | `src/main.js`                                                                    |
+| 部署配置（Vercel 静态）    | `vercel.json`；词库 `public/data/vocabulary.sqlite` 须入库（见 §9）              |
 
 ## 3. 知识库与文档归档
 
@@ -215,8 +216,8 @@
 
 - `vite.config.js` 中 `sql.js` 的 alias **不可删除**：该包 `exports.browser` 指向 UMD 构建（无 default 导出），会让 Vite 的 ESM interop 报错；指向 `dist/sql-wasm.js` 才能正常加载
 - `src/api/vocabulary.js` 的 `resolveSqlJsInit()` 兼容 default / 具名 `Module` / 命名空间三种导出形态，不要简化成 `import initSqlJs from "sql.js"`
-- `postinstall` 脚本 `scripts/copy-wasm.mjs` 负责把 `sql-wasm.wasm` 复制到 `public/data/`；删除它会导致运行时找不到 wasm
-- `public/data/vocabulary.sqlite` 与 `public/data/sql-wasm.wasm` 是构建期生成物（已 gitignore），新克隆仓库须先跑 `npm install`（触发 wasm 复制）与 `python scripts/build-db.py`
+- `scripts/copy-wasm.mjs` 把 `sql-wasm.wasm` 复制到 `public/data/`，同时挂在 `postinstall` 与 `prebuild` 上（双保险，且始终与 `node_modules` 里的 sql.js 版本匹配）；删除它会导致运行时找不到 wasm
+- **`public/data/vocabulary.sqlite`（词库）必须入库，不得加入 `.gitignore`**：它由 `npm run db` 从**仓库外**的上游数据集生成，生产构建环境（如 Vercel）无法生成，因此随静态站点分发；上游更新后须本地重新生成并提交（**数据更新走提交，而非走构建**）
 
 **发音实现**
 
