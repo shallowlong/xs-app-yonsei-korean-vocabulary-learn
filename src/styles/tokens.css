@@ -1,0 +1,119 @@
+/**
+ * 设计令牌 —— 韩语学习站的主题基线。
+ * 主色取青绿（teal）表达"发音 / 声音"，深色取藏蓝（navy）承载韩语大字，
+ * 与页面上韩英中三语并置的排版对照关系对应。
+ * 所有组件只使用本文件的变量，不写死颜色（见 AGENTS.md §4）。
+ */
+:root {
+	color-scheme: light;
+
+	/* 品牌主色 */
+	--brand: #2f8f83;
+	--brand-hover: #37a294;
+	--brand-active: #26766c;
+	--brand-soft: #e7f4f1;
+	--brand-line: #b9ded7;
+
+	/* 深色文字承载色 */
+	--navy: #173b57;
+	--navy-soft: #244f70;
+
+	/* 强调色（收藏） */
+	--accent: #e0a63c;
+	--accent-soft: #fdf3e0;
+
+	/* 文本 */
+	--ink: #1b262e;
+	--ink-2: #516069;
+	--ink-3: #8b969c;
+	--ink-inverse: #ffffff;
+
+	/* 线条与底色 */
+	--line: #e2e8e6;
+	--line-2: #eef2f0;
+	--bg: #f5f7f6;
+	--card: #ffffff;
+	--card-sub: #fafbfb;
+
+	/* 语义色 */
+	--green: #2f8b64;
+	--green-bg: #e8f4ee;
+	--blue: #3d73b9;
+	--blue-bg: #e9f0f9;
+	--orange: #b97818;
+	--orange-bg: #f8f1e2;
+	--purple: #8250a7;
+	--purple-bg: #f1eaf8;
+	--red: #a34e4e;
+	--red-bg: #f8ebea;
+	--gray-bg: #eef1f0;
+
+	/* 尺度 */
+	--radius-s: 8px;
+	--radius-m: 12px;
+	--radius-l: 16px;
+	--shadow-s: 0 1px 2px rgba(23, 59, 87, 0.05);
+	--shadow-m: 0 8px 24px -12px rgba(23, 59, 87, 0.25);
+
+	/* 字体：韩语优先自带韩文字形的字体链 */
+	--font-sans:
+		"Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	--font-ko:
+		"Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
+		"Microsoft YaHei", system-ui, sans-serif;
+	--font-num:
+		ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+	/* 布局 */
+	--wrap: 1080px;
+	--appbar-h: 58px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--ink);
+	font: 14px/1.65 var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	line-height: 1.35;
+	font-weight: 700;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: var(--brand);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+:focus-visible {
+	outline: 2px solid var(--brand);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
